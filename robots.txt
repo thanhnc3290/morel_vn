@@ -1,0 +1,7 @@
+User-agent: SpamBot
+Disallow: /
+User-agent: *
+Disallow: /admin/
+Disallow: /submission.php
+
+Sitemap: http://localhost/web.dungchung.2020/sitemap.xml
