@@ -121,7 +121,7 @@
 					                    <div class="col-xl-4 col-lg-4 col-md-12 mb-1">
 					                        <fieldset class="form-group">
 					                        	<label for="basicInput">Fanpage:</label>
-					                        	<input type="text" class="form-control" id="basicInput" placeholder="Nhập đường dẫn Fanpage chính" name="fanpage" value="<?php echo $info->fanpage ?>">
+					                        	<input type="text" class="form-control" id="basicInput" placeholder="Nhập đường dẫn Fanpage chính" name="facebook" value="<?php echo $info->facebook ?>">
 					                        </fieldset> 
 										</div>
 										<!-- <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
