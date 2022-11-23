@@ -60,7 +60,7 @@ Class Site_info extends MY_Controller
 				$meta_desc              		= $this->input->post('meta_desc');
 				$meta_key               		= $this->input->post('meta_key');
 				$email                  		= $this->input->post('email');
-				$fanpage                		= $this->input->post('fanpage');
+				$facebook                		= $this->input->post('facebook');
 				$zalo                			= $this->input->post('zalo');
 				$youtube                		= $this->input->post('youtube');
 				$phone                  		= $this->input->post('phone');
@@ -90,7 +90,7 @@ Class Site_info extends MY_Controller
 						'meta_desc'          			=> $meta_desc,
 						'meta_key'            			=> $meta_key,
 						'email'               			=> $email,
-						'fanpage'             			=> $fanpage,
+						'facebook'             			=> $facebook,
 						'youtube'             			=> $youtube,
 						'zalo'             				=> $zalo,
 						'phone'               			=> $phone,
