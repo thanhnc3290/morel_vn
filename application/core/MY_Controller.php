@@ -25,7 +25,8 @@ Class MY_Controller extends CI_Controller
 
 			default:
 			{
-				
+				$site_info = $this->site_info_model->get_info('1');
+				$this->data['site_info'] = $site_info;
 
 					
 							 

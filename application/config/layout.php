@@ -3,8 +3,8 @@
 
 <?php $this->load->view('site/head'); ?>
 
-<body
-    class="home page-template-default page page-id-5 wp-embed-responsive theme-morel woocommerce-no-js mega-menu-menu-1 singular image-filters-enabled">
+<body class="home page-template-default page page-id-5 wp-embed-responsive theme-morel woocommerce-no-js mega-menu-menu-1 singular image-filters-enabled">
+    <?php echo $site_info->script_verified_site_in_body; ?>
     <section class="top_navigation">
         <nav>
             <div id="mega-menu-wrap-menu-1" class="mega-menu-wrap">
