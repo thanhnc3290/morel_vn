@@ -57,7 +57,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title"><a data-action="collapse"><i class="ft-chevrons-down"></i> Danh mục cấp 1: <?php echo $row->name ?></a> <span style="font-size: 0.8rem"><br/><i class="ft-chevron-right"></i> (Trạng thái: <?php if($row->status == '0'): ?><span style="color:green;">Hiển thị</span><?php else: ?><span style="color:red;">Không hiển thị</span><?php endif; ?> -- <?php if($row->url_status == '0'): ?><?php if($row->content_status == '1'): ?>Có nội dung content<?php else: ?><?php if($row->layout_type == '0') echo 'Dạng danh mục tin tức' ?><?php if($row->layout_type == '1') echo 'Dạng danh mục bác sĩ' ?><?php if($row->layout_type == '2') echo 'Dạng danh mục dịch vụ' ?><?php if($row->layout_type == '999') echo 'Dẫn về landingpage riêng' ?><?php endif; ?><?php else: ?>Không cho phép truy cập đường dẫn<?php endif; ?> -- Thứ tự ưu tiên: <?php echo $row->sort_order ?> )</span></h4>
+                  <h4 class="card-title"><a data-action="collapse"><i class="ft-chevrons-down"></i> Danh mục cấp 1: <?php echo $row->name ?></a> <span style="font-size: 0.8rem"><br/><i class="ft-chevron-right"></i> (Trạng thái: <?php if($row->status == '0'): ?><span style="color:green;">Hiển thị</span><?php else: ?><span style="color:red;">Không hiển thị</span><?php endif; ?> -- Thứ tự ưu tiên: <?php echo $row->sort_order ?> )</span></h4>
                   <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -76,7 +76,7 @@
                       <div class="col-12">
                         <div class="card" style="margin-bottom:0px;">
                           <div class="card-header">
-                            <span><a data-action="collapse"><i class="ft-corner-down-right"></i> Danh mục cấp 2: <b><?php echo $subs->name ?></b></a> <br/><i class="ft-chevron-right"></i> (Trạng thái: <?php if($subs->status == '0'): ?><span style="color:green;">Hiển thị</span><?php else: ?><span style="color:red;">Không hiển thị</span><?php endif; ?> -- <?php if($subs->url_status == '0'): ?><?php if($subs->content_status == '1'): ?>Có nội dung content<?php else: ?><?php if($subs->layout_type == '0') echo 'Dạng danh mục tin tức' ?><?php if($subs->layout_type == '1') echo 'Dạng danh mục bác sĩ' ?><?php if($subs->layout_type == '2') echo 'Dạng danh mục dịch vụ' ?><?php if($subs->layout_type == '999') echo 'Dẫn về landingpage riêng' ?><?php endif; ?><?php else: ?>Không cho phép truy cập đường dẫn<?php endif; ?>  -- Thứ tự ưu tiên: <?php echo $subs->sort_order ?> )</span>
+                            <span><a data-action="collapse"><i class="ft-corner-down-right"></i> Danh mục cấp 2: <b><?php echo $subs->name ?></b></a> <br/><i class="ft-chevron-right"></i> (Trạng thái: <?php if($subs->status == '0'): ?><span style="color:green;">Hiển thị</span><?php else: ?><span style="color:red;">Không hiển thị</span><?php endif; ?> -- Thứ tự ưu tiên: <?php echo $subs->sort_order ?> )</span>
                             <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                               <ul class="list-inline mb-0">
@@ -95,7 +95,7 @@
                                     <div class="col-12">
                                       <div class="card" style="margin-bottom:0px ;">
                                         <div class="card-header">
-                                          <span><i class="ft-corner-down-right"></i> Danh mục cấp 3: <b><?php echo $subss->name ?></b> <br/><i class="ft-chevron-right"></i> (Trạng thái: <?php if($subss->status == '0'): ?><span style="color:green;">Hiển thị</span><?php else: ?><span style="color:red;">Không hiển thị</span><?php endif; ?> -- <?php if($subss->url_status == '0'): ?><?php if($subss->content_status == '1'): ?>Có nội dung content<?php else: ?><?php if($subss->layout_type == '0') echo 'Dạng danh mục tin tức' ?><?php if($subss->layout_type == '1') echo 'Dạng danh mục bác sĩ' ?><?php if($subss->layout_type == '2') echo 'Dạng danh mục dịch vụ' ?><?php if($subss->layout_type == '999') echo 'Dẫn về landingpage riêng' ?><?php endif; ?><?php else: ?>Không cho phép truy cập đường dẫn<?php endif; ?>  -- Thứ tự ưu tiên: <?php echo $subss->sort_order ?> )</span>
+                                          <span><i class="ft-corner-down-right"></i> Danh mục cấp 3: <b><?php echo $subss->name ?></b> <br/><i class="ft-chevron-right"></i> (Trạng thái: <?php if($subss->status == '0'): ?><span style="color:green;">Hiển thị</span><?php else: ?><span style="color:red;">Không hiển thị</span><?php endif; ?> -- Thứ tự ưu tiên: <?php echo $subss->sort_order ?> )</span>
                                             <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                                             <div class="heading-elements">
                                               <ul class="list-inline mb-0">
@@ -163,57 +163,28 @@
                   </fieldset> 
                 </div>
 
-                <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                  <fieldset class="form-group">
+                    <label for="basicInput">Redirect Url:</label>
+                    <input  type="text" class="form-control" id="basicInput" name="redirect_link" placeholder="Nhập đường dẫn">
+                  </fieldset> 
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
                   <fieldset class="form-group">
                     <label for="basicSelect">Danh mục:</label>
                     <select class="form-control" id="basicSelect" name="parent_id">
                       <option value="0">Là danh mục cha</option>
                       <?php foreach($list as $row): ?>
-                        <option value="<?php echo $row->id ?>" <?php if($row->menu_status == '1') echo 'disabled' ?>><strong><?php echo $row->name ?></strong></option>
+                        <option value="<?php echo $row->id ?>"><strong><?php echo $row->name ?></strong></option>
                         <?php foreach($row->subs as $subs): ?>
                           <option value="<?php echo $subs->id ?>">-- <i><?php echo $subs->name ?></i></option>
+                          <?php foreach($subs->subss as $subss): ?>
+                            <option value="<?php echo $subss->id ?>">---- <i><?php echo $subss->name ?></i></option>
+                          <?php endforeach; ?>
                         <?php endforeach; ?>
                       <?php endforeach; ?>
                     </select>
-                  </fieldset>
-                </div>
-
-                <div class="col-xl-6 col-lg-6 col-md-12">
-                  <fieldset class="form-group">
-                    <label for="basicSelect">Danh mục này có phần Content?</label>
-                    <select onchange="check_content()" id="content_status" class="form-control" name="content_status">
-                      <option value="0">Không có</option>
-                      <option value="1">Có</option>
-                    </select>
-                  </fieldset>
-                </div>
-                
-                <div class="col-xl-6 col-lg-6 col-md-12">
-                  <fieldset class="form-group">
-                    <label for="basicSelect">Cho phép truy cập đường dẫn của danh mục:</label>
-                    <select class="form-control" id="" name="url_status" style="">
-                      <option value="0">Cho phép</option>
-                      <option value="1">Không cho phép</option>
-                    </select>
-                  </fieldset>
-                </div>
-
-                <div class="col-xl-6 col-lg-6 col-md-12">
-                  <fieldset class="form-group">
-                    <label for="basicSelect">Dạng Layout:</label>
-                    <select onchange="check_layout()" class="form-control" id="layout_type" name="layout_type" style="">
-                      <option value="0">Layout danh mục tin tức</option>
-                      <option value="1">Layout danh mục bác sĩ</option>
-                      <option value="2">Layout danh mục dịch vụ</option>
-                      <option value="999">Layout landingpage</option>
-                    </select>
-                  </fieldset>
-                </div>
-
-                <div class="col-xl-12 col-lg-12 col-md-12 mb-1" style="display: none;" id="landingpage_url">
-                  <fieldset class="form-group">
-                    <label for="basicInput">Đường dẫn landingpage:</label>
-                    <input id="" type="text" class="form-control" id="basicInput" name="landingpage_url" placeholder="Nhập đường dẫn">
                   </fieldset>
                 </div>
 
@@ -233,17 +204,7 @@
                     <input type="number" class="form-control" id="basicInput" name="sort_order">
                   </fieldset>
                 </div>
-
-                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
-                  <fieldset class="form-group">
-                    <label for="basicSelect">Hiển Thị Trên Menu:</label>
-                    <select class="form-control" id="basicSelect" name="menu_status">
-                      <option value="0">ON</option>
-                      <option value="1">OFF</option>
-                    </select>
-                  </fieldset>
-                </div>
-
+                
                 <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
                   <fieldset class="form-group">
                     <label for="basicTextarea">Mô tả (Meta Descreption):</label>
@@ -287,51 +248,11 @@
                 </div>
               </div>
 
-              <div class="row justify-content-md-left" id="content" style="display: none;">
-                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-                  <h4><u><b>Nội dung:</b></u></h4>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12">
-                  <fieldset class="form-group">
-                    <label>Content:</label>
-                    <textarea name="content" id="editor" class="form-control" rows="6" style="margin-top: 0px; margin-bottom: 0px; height: 75px;"></textarea>
-                    <script>CKEDITOR.replace('editor');</script>
-                  </fieldset>
-                </div>
-              </div>
-
             </div>
           </div>
 
           <script type="text/javascript">
-            function check_content(){
-              var content_status = document.getElementById("content_status").value; // Lấy giá trị select content_status
-              if(content_status  == '1'){ //Nếu là dạng danh mục có phần Content
-								document.getElementById('layout_type').setAttribute("style","display:none;");
-								document.getElementById('landingpage_url').setAttribute("style","display:none;");
-								document.getElementById('content').setAttribute("style","display:block;");
-					    }else{
-								document.getElementById('layout_type').setAttribute("style","display:block;");
-								var layout_type = document.getElementById("layout_type").value; // Lấy giá trị select layout_type
-								if(layout_type  == '999'){ //Nếu là dạng layout sử dụng landingpage
-									document.getElementById('landingpage_url').setAttribute("style","display:block;");
-								}else{
-									document.getElementById('landingpage_url').setAttribute("style","display:none;");
-								}
-                document.getElementById('content').setAttribute("style","display:none;");
-              }
-            }
-
-            function check_layout(){
-              var layout_type = document.getElementById("layout_type").value; // Lấy giá trị select layout_type
-              if(layout_type  == '999'){ //Nếu là dạng layout sử dụng landingpage
-                document.getElementById('landingpage_url').setAttribute("style","display:block;");
-              }else{
-                document.getElementById('landingpage_url').setAttribute("style","display:none;");
-              }
-            }
-
-            function create_alias (){
+            function create_alias(){
               if(document.getElementById("input_name").value !== ''){ //Nếu có input Name
                 var input_alias = document.getElementById("input_name").value; // Lấy giá trị input name & chuyển thành alias
                 //Replace về ký tự đặc biệt cấu trúc /['giá trị cần thay đổi']/gi - để thay đổi toàn bộ cả hoa cả thường /g để thay đổi chính xác, "['giá trị cần thay đổi']" để thay đổi 1 lần duy nhất
@@ -450,7 +371,7 @@
     <div class="modal-dialog" role="document" style="max-width:98%;">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><b>Chỉnh sửa danh mục cấp 1: "<?php echo $row->name ?>"</b></h5>
+          <h5 class="modal-title" id="exampleModalLabel"><b>Chỉnh sửa danh mục cấp 3: "<?php echo $row->name ?>"</b></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <!-- form edit -->
@@ -473,6 +394,13 @@
                     <label for="basicInput">Alias (tên đường dẫn):</label>
                     <input style="" oninput="create_alias_<?php echo $row->id ?>()" id="alias_<?php echo $row->id ?>" type="text" class="form-control" id="basicInput" name="alias" placeholder="Nhập tên đường dẫn. VD: danh-muc-dich-vu" value="<?php echo $row->alias ?>">
                     <label id="allert_error_<?php echo $row->id ?>" for="basicInput" style="color: red;display: none;"><i>*Tên đường dẫn bị trùng, hãy thay đổi.</i></label>
+                  </fieldset> 
+                </div>
+
+                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                  <fieldset class="form-group">
+                    <label for="basicInput">Redirect Url:</label>
+                    <input  type="text" class="form-control" id="basicInput" name="redirect_link" placeholder="Nhập đường dẫn" value="<?php echo $row->redirect_link; ?>">
                   </fieldset> 
                 </div>
                 <?php 
@@ -498,7 +426,7 @@
 												
 									}
 								?>
-                <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
 					        <fieldset class="form-group">
 					          <label for="basicSelect">Danh mục:</label>
 					          <select class="form-control" id="" name="parent_id">
@@ -506,7 +434,7 @@
 												<?php foreach($list as $cat): ?>
 													<?php if($check_catalog_lv_1 == '0'): //Nếu $row phù hợp để được lựa chọn nằm dưới 1 danh mục cấp 1 bất kỳ ?>
 														<?php if($cat->id !== $row->id): ?>
-															<option value="<?php echo $cat->id ?>" <?php if($cat->menu_status == '1') echo 'disabled' ?> <?php if($cat->id == $row->parent_id) echo 'selected' ?>><strong><?php echo $cat->name ?></strong></option>
+															<option value="<?php echo $cat->id ?>" <?php if($cat->id == $row->parent_id) echo 'selected' ?>><strong><?php echo $cat->name ?></strong></option>
 															<?php foreach($cat->subs as $cat_subs): ?>
 																<?php if($check_catalog_lv_2 == '0'): // Nếu $row phù hợp để được lựa chọn nằm dưới 1 danh mục cấp 2 bất kỳ ?>
 																	<?php if($cat_subs->id !== $row->id): ?>
@@ -519,45 +447,6 @@
                         <?php endforeach; ?>
 					          </select>
 					        </fieldset>
-                </div>
-
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-					          <label for="basicSelect">Danh mục này có phần Content?</label>
-					          <select onchange="check_content_<?php echo $row->id ?>()" id="content_status_<?php echo $row->id ?>" class="form-control" name="content_status">
-											<option value="0" <?php if($row->content_status == '0') echo 'selected' ?>>Không có</option>
-											<option value="1" <?php if($row->content_status == '1') echo 'selected' ?>>Có</option>
-					          </select>
-					        </fieldset>
-                </div>
-                
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-					          <label for="basicSelect">Cho phép truy cập đường dẫn của danh mục:</label>
-					          <select class="form-control" id="" name="url_status" style="">
-											<option value="0"<?php if($row->url_status == '0') echo 'selected' ?>>Cho phép</option>
-											<option value="1"<?php if($row->url_status == '1') echo 'selected' ?>>Không cho phép</option>
-					          </select>
-					        </fieldset>
-                </div>
-                
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-                    <label for="basicSelect">Dạng Layout:</label>
-										<select onchange="check_layout_<?php echo $row->id ?>()" class="form-control" id="layout_type_<?php echo $row->id ?>" name="layout_type" <?php if($row->content_status == '1'): ?>style="display:none;"<?php endif; ?>>
-											<option value="0" <?php if($row->layout_type == '0') echo 'selected' ?>>Layout danh mục tin tức</option>
-											<option value="1" <?php if($row->layout_type == '1') echo 'selected' ?>>Layout danh mục bác sĩ</option>
-											<option value="2" <?php if($row->layout_type == '2') echo 'selected' ?>>Layout danh mục dịch vụ</option>
-                      <option value="999" <?php if($row->layout_type == '999') echo 'selected' ?>>Layout landingpage</option>
-                    </select>
-                  </fieldset>
-                </div>
-                
-                <div class="col-xl-12 col-lg-12 col-md-12 mb-1" <?php if($row->layout_type !== '999'): ?>style="display: none;"<?php endif; ?> id="landingpage_url_<?php echo $row->id ?>">
-					        <fieldset class="form-group">
-					          <label for="basicInput">Đường dẫn landingpage:</label>
-					          <input id="" type="text" class="form-control" id="basicInput" name="landingpage_url" placeholder="Nhập đường dẫn" value="<?php echo $row->landingpage_url ?>">
-					        </fieldset> 
                 </div>
 
                 <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
@@ -577,15 +466,7 @@
 					        </fieldset>
                 </div>
 
-                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
-                  <fieldset class="form-group">
-                    <label for="basicSelect">Hiển Thị Trên Menu:</label>
-                    <select class="form-control" id="basicSelect" name="menu_status">
-                      <option value="0" <?php if($row->menu_status == '0') echo 'selected' ?>>ON</option>
-                      <option value="1" <?php if($row->menu_status == '1') echo 'selected' ?>>OFF</option>
-                    </select>
-                  </fieldset>
-                </div>
+          
                 
                 <div class="col-xl-6 col-lg-6 col-md-12">
 					        <fieldset class="form-group">
@@ -613,8 +494,8 @@
                   </fieldset>
                   <?php
                     $image_link_of_this_info = '';
-                    if($row->image_link !== ''){
-											$image_link_of_this_info = base_url('upload/catalog/'.$row->image_link);
+                    if($row->social_image_link !== ''){
+											$image_link_of_this_info = base_url('upload/catalog_product/'.$row->social_image_link);
 										} 
                   ?>
                   <!-- Thẻ hiển thị Preview ảnh -->
@@ -636,51 +517,12 @@
 								</div>
               </div>
               
-              <div class="row justify-content-md-left"  id="content_<?php echo $row->id ?>" <?php if($row->content_status == '0'): ?>style="display: none;"<?php endif; ?>>
-                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-                  <h4><u><b>Nội dung</b></u></h4>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12">
-                  <fieldset class="form-group">
-                    <label>Content:</label>
-                    <textarea name="content" id="editor_<?php echo $row->id ?>" class="form-control" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 75px;"><?php echo $row->content ?></textarea>
-                    <script>CKEDITOR.replace('editor_<?php echo $row->id ?>');</script>
-                  </fieldset>
-                </div>
-              </div>
+              
 
             </div>
 
 
             <script>
-              function check_layout_<?php echo $row->id ?>(){
-								var layout_type_<?php echo $row->id ?> = document.getElementById("layout_type_<?php echo $row->id ?>").value; // Lấy giá trị select layout_type
-								if(layout_type_<?php echo $row->id ?>  == '999'){ //Nếu là dạng layout sử dụng landingpage
-									document.getElementById('landingpage_url_<?php echo $row->id ?>').setAttribute("style","display:block;");
-					      }else{
-									document.getElementById('landingpage_url_<?php echo $row->id ?>').setAttribute("style","display:none;");
-                }
-              }
-
-              function check_content_<?php echo $row->id ?>(){
-								var content_status_<?php echo $row->id ?> = document.getElementById("content_status_<?php echo $row->id ?>").value; // Lấy giá trị select content_status
-
-								if(content_status_<?php echo $row->id ?>  == '1'){ //Nếu là dạng danh mục có phần Content
-									document.getElementById('layout_type_<?php echo $row->id ?>').setAttribute("style","display:none;");
-                  document.getElementById('landingpage_url_<?php echo $row->id ?>').setAttribute("style","display:none;");
-                  document.getElementById('content_<?php echo $row->id ?>').setAttribute("style","display:block;");
-					      }else{
-                  document.getElementById('layout_type_<?php echo $row->id ?>').setAttribute("style","display:block;");
-                  var layout_type_<?php echo $row->id ?> = document.getElementById("layout_type_<?php echo $row->id ?>").value; // Lấy giá trị select layout_type
-                  if(layout_type_<?php echo $row->id ?>  == '999'){ //Nếu là dạng layout sử dụng landingpage
-                    document.getElementById('landingpage_url_<?php echo $row->id ?>').setAttribute("style","display:block;");
-                  }else{
-                    document.getElementById('landingpage_url_<?php echo $row->id ?>').setAttribute("style","display:none;");
-                  }
-                  document.getElementById('content_<?php echo $row->id ?>').setAttribute("style","display:none;");
-					      }
-              }
-              
               function create_alias_<?php echo $row->id ?> (){
                 if(document.getElementById("input_name_<?php echo $row->id ?>").value !== ''){ //Nếu có input_name
                   var input_alias_<?php echo $row->id ?> = document.getElementById("input_name_<?php echo $row->id ?>").value; // Lấy giá trị input name & chuyển thành alias
@@ -797,7 +639,7 @@
     <div class="modal-dialog" role="document" style="max-width:98%;">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><b>Chỉnh sửa danh mục cấp 1: "<?php echo $subs->name ?>"</b></h5>
+          <h5 class="modal-title" id="exampleModalLabel"><b>Chỉnh sửa danh mục cấp 2: "<?php echo $subs->name ?>"</b></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <!-- form edit -->
@@ -815,11 +657,18 @@
                     </fieldset> 
                 </div>
 
-                <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
                   <fieldset class="form-group">
                     <label for="basicInput">Alias (tên đường dẫn):</label>
                     <input style="" oninput="create_alias_<?php echo $subs->id ?>()" id="alias_<?php echo $subs->id ?>" type="text" class="form-control" id="basicInput" name="alias" placeholder="Nhập tên đường dẫn. VD: danh-muc-dich-vu" value="<?php echo $subs->alias ?>">
                     <label id="allert_error_<?php echo $subs->id ?>" for="basicInput" style="color: red;display: none;"><i>*Tên đường dẫn bị trùng, hãy thay đổi.</i></label>
+                  </fieldset> 
+                </div>
+
+                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                  <fieldset class="form-group">
+                    <label for="basicInput">Redirect Url:</label>
+                    <input  type="text" class="form-control" id="basicInput" name="redirect_link" placeholder="Nhập đường dẫn" value="<?php echo $subs->redirect_link; ?>">
                   </fieldset> 
                 </div>
                 <?php 
@@ -845,7 +694,7 @@
 												
 									}
 								?>
-                <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
 					        <fieldset class="form-group">
 					          <label for="basicSelect">Danh mục:</label>
 					          <select class="form-control" id="" name="parent_id">
@@ -868,44 +717,6 @@
 					        </fieldset>
                 </div>
 
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-					          <label for="basicSelect">Danh mục này có phần Content?</label>
-					          <select onchange="check_content_<?php echo $subs->id ?>()" id="content_status_<?php echo $subs->id ?>" class="form-control" name="content_status">
-											<option value="0" <?php if($subs->content_status == '0') echo 'selected' ?>>Không có</option>
-											<option value="1" <?php if($subs->content_status == '1') echo 'selected' ?>>Có</option>
-					          </select>
-					        </fieldset>
-                </div>
-                
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-					          <label for="basicSelect">Cho phép truy cập đường dẫn của danh mục:</label>
-					          <select class="form-control" id="" name="url_status" style="">
-											<option value="0"<?php if($subs->url_status == '0') echo 'selected' ?>>Cho phép</option>
-											<option value="1"<?php if($subs->url_status == '1') echo 'selected' ?>>Không cho phép</option>
-					          </select>
-					        </fieldset>
-                </div>
-                
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-                    <label for="basicSelect">Dạng Layout:</label>
-										<select onchange="check_layout_<?php echo $subs->id ?>()" class="form-control" id="layout_type_<?php echo $subs->id ?>" name="layout_type" <?php if($subs->content_status == '1'): ?>style="display:none;"<?php endif; ?>>
-											<option value="0" <?php if($subs->layout_type == '0') echo 'selected' ?>>Layout danh mục tin tức</option>
-											<option value="1" <?php if($subs->layout_type == '1') echo 'selected' ?>>Layout danh mục bác sĩ</option>
-											<option value="2" <?php if($subs->layout_type == '2') echo 'selected' ?>>Layout danh mục dịch vụ</option>
-                      <option value="999" <?php if($subs->layout_type == '999') echo 'selected' ?>>Layout landingpage</option>
-                    </select>
-                  </fieldset>
-                </div>
-                
-                <div class="col-xl-12 col-lg-12 col-md-12 mb-1" <?php if($subs->layout_type !== '999'): ?>style="display: none;"<?php endif; ?> id="landingpage_url_<?php echo $subs->id ?>">
-					        <fieldset class="form-group">
-					          <label for="basicInput">Đường dẫn landingpage:</label>
-					          <input id="" type="text" class="form-control" id="basicInput" name="landingpage_url" placeholder="Nhập đường dẫn" value="<?php echo $subs->landingpage_url ?>">
-					        </fieldset> 
-                </div>
 
                 <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
                   <fieldset class="form-group">
@@ -924,15 +735,6 @@
 					        </fieldset>
                 </div>
 
-                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
-                  <fieldset class="form-group">
-                    <label for="basicSelect">Hiển Thị Trên Menu:</label>
-                    <select class="form-control" id="basicSelect" name="menu_status">
-                      <option value="0" <?php if($subs->menu_status == '0') echo 'selected' ?>>ON</option>
-                      <option value="1" <?php if($subs->menu_status == '1') echo 'selected' ?>>OFF</option>
-                    </select>
-                  </fieldset>
-                </div>
                 
                 <div class="col-xl-6 col-lg-6 col-md-12">
 					        <fieldset class="form-group">
@@ -960,8 +762,8 @@
                   </fieldset>
                   <?php
                     $image_link_of_this_info = '';
-                    if($subs->image_link !== ''){
-											$image_link_of_this_info = base_url('upload/catalog/'.$subs->image_link);
+                    if($subs->social_image_link !== ''){
+											$image_link_of_this_info = base_url('upload/catalog_product/'.$subs->social_image_link);
 										} 
                   ?>
                   <!-- Thẻ hiển thị Preview ảnh -->
@@ -981,19 +783,6 @@
 									</fieldset>
 									<!-- END thẻ hiển thị view ảnh -->
 								</div>
-              </div>
-              
-              <div class="row justify-content-md-left"  id="content_<?php echo $subs->id ?>" <?php if($subs->content_status == '0'): ?>style="display: none;"<?php endif; ?>>
-                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-                  <h4><u><b>Nội dung</b></u></h4>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12">
-                  <fieldset class="form-group">
-                    <label>Content:</label>
-                    <textarea name="content" id="editor_<?php echo $subs->id ?>" class="form-control" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 75px;"><?php echo $subs->content ?></textarea>
-                    <script>CKEDITOR.replace('editor_<?php echo $subs->id ?>');</script>
-                  </fieldset>
-                </div>
               </div>
 
             </div>
@@ -1169,6 +958,12 @@
                     <label id="allert_error_<?php echo $subss->id ?>" for="basicInput" style="color: red;display: none;"><i>*Tên đường dẫn bị trùng, hãy thay đổi.</i></label>
                   </fieldset> 
                 </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                  <fieldset class="form-group">
+                    <label for="basicInput">Redirect Url:</label>
+                    <input  type="text" class="form-control" id="basicInput" name="redirect_link" placeholder="Nhập đường dẫn" value="<?php echo $subss->redirect_link; ?>">
+                  </fieldset> 
+                </div>
                 <?php 
 									//Tạo 2 biến để check xem $subss là danh mục cấp 1/2/3
 									$check_catalog_lv_1 = '0'; //Biến thể hiện cho phép lựa chọn nằm dưới 1 danh mục cấp 1 bất kỳ
@@ -1192,7 +987,7 @@
 												
 									}
 								?>
-                <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
 					        <fieldset class="form-group">
 					          <label for="basicSelect">Danh mục:</label>
 					          <select class="form-control" id="" name="parent_id">
@@ -1215,45 +1010,7 @@
 					        </fieldset>
                 </div>
 
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-					          <label for="basicSelect">Danh mục này có phần Content?</label>
-					          <select onchange="check_content_<?php echo $subss->id ?>()" id="content_status_<?php echo $subss->id ?>" class="form-control" name="content_status">
-											<option value="0" <?php if($subss->content_status == '0') echo 'selected' ?>>Không có</option>
-											<option value="1" <?php if($subss->content_status == '1') echo 'selected' ?>>Có</option>
-					          </select>
-					        </fieldset>
-                </div>
                 
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-					          <label for="basicSelect">Cho phép truy cập đường dẫn của danh mục:</label>
-					          <select class="form-control" id="" name="url_status" style="">
-											<option value="0"<?php if($subss->url_status == '0') echo 'selected' ?>>Cho phép</option>
-											<option value="1"<?php if($subss->url_status == '1') echo 'selected' ?>>Không cho phép</option>
-					          </select>
-					        </fieldset>
-                </div>
-                
-                <div class="col-xl-6 col-lg-6 col-md-12">
-					        <fieldset class="form-group">
-                    <label for="basicSelect">Dạng Layout:</label>
-										<select onchange="check_layout_<?php echo $subss->id ?>()" class="form-control" id="layout_type_<?php echo $subss->id ?>" name="layout_type" <?php if($subss->content_status == '1'): ?>style="display:none;"<?php endif; ?>>
-											<option value="0" <?php if($subss->layout_type == '0') echo 'selected' ?>>Layout danh mục tin tức</option>
-											<option value="1" <?php if($subss->layout_type == '1') echo 'selected' ?>>Layout danh mục bác sĩ</option>
-											<option value="2" <?php if($subss->layout_type == '2') echo 'selected' ?>>Layout danh mục dịch vụ</option>
-                      <option value="999" <?php if($subss->layout_type == '999') echo 'selected' ?>>Layout landingpage</option>
-                    </select>
-                  </fieldset>
-                </div>
-                
-                <div class="col-xl-12 col-lg-12 col-md-12 mb-1" <?php if($subss->layout_type !== '999'): ?>style="display: none;"<?php endif; ?> id="landingpage_url_<?php echo $subss->id ?>">
-					        <fieldset class="form-group">
-					          <label for="basicInput">Đường dẫn landingpage:</label>
-					          <input id="" type="text" class="form-control" id="basicInput" name="landingpage_url" placeholder="Nhập đường dẫn" value="<?php echo $subss->landingpage_url ?>">
-					        </fieldset> 
-                </div>
-
                 <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
                   <fieldset class="form-group">
                     <label for="basicSelect">Trạng thái:</label>
@@ -1271,15 +1028,7 @@
 					        </fieldset>
                 </div>
 
-                <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
-                  <fieldset class="form-group">
-                    <label for="basicSelect">Hiển Thị Trên Menu:</label>
-                    <select class="form-control" id="basicSelect" name="menu_status">
-                      <option value="0" <?php if($subss->menu_status == '0') echo 'selected' ?>>ON</option>
-                      <option value="1" <?php if($subss->menu_status == '1') echo 'selected' ?>>OFF</option>
-                    </select>
-                  </fieldset>
-                </div>
+                
                 
                 <div class="col-xl-6 col-lg-6 col-md-12">
 					        <fieldset class="form-group">
@@ -1307,8 +1056,8 @@
                   </fieldset>
                   <?php
                     $image_link_of_this_info = '';
-                    if($subss->image_link !== ''){
-											$image_link_of_this_info = base_url('upload/catalog/'.$subss->image_link);
+                    if($subss->social_image_link !== ''){
+											$image_link_of_this_info = base_url('upload/catalog_product/'.$subss->social_image_link);
 										} 
                   ?>
                   <!-- Thẻ hiển thị Preview ảnh -->
@@ -1330,18 +1079,7 @@
 								</div>
               </div>
               
-              <div class="row justify-content-md-left"  id="content_<?php echo $subss->id ?>" <?php if($subss->content_status == '0'): ?>style="display: none;"<?php endif; ?>>
-                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-                  <h4><u><b>Nội dung</b></u></h4>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12">
-                  <fieldset class="form-group">
-                    <label>Content:</label>
-                    <textarea name="content" id="editor_<?php echo $subss->id ?>" class="form-control" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 75px;"><?php echo $subss->content ?></textarea>
-                    <script>CKEDITOR.replace('editor_<?php echo $subss->id ?>');</script>
-                  </fieldset>
-                </div>
-              </div>
+              
 
             </div>
 
@@ -1557,7 +1295,7 @@
               <div class="modal-content">
                 <?php 
                   $check_content_list = '0';
-                  foreach($news_list as $news){
+                  foreach($product_list as $news){
                     if($news->catalog_id == $subss->id){
                       $check_content_list = '1'; // Kiểm tra danh mục con này có chứa các bài viết liên quan hay không
                     }

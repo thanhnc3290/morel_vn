@@ -5131,14 +5131,14 @@ section.products-section .container {
 }
 
 .product_title span {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Roboto";
     font-size: 18px;
     font-weight: 700;
     color: #000
 }
 
 .product_short_description p {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Roboto";
     font-size: 16px;
     font-weight: 300;
     line-height: 36px;
@@ -6061,7 +6061,8 @@ ul.card_icon_list li {
     font-weight: 700;
     min-height: 54px;
     text-transform: uppercase;
-    color: #fff
+    color: #fff;
+    max-width: 150px;
 }
 
 #mega-menu-wrap-menu-1 #mega-menu-menu-1>li.mega-menu-megamenu>ul.mega-sub-menu>li.mega-mega-sub,
@@ -7904,7 +7905,8 @@ p.return-to-shop {
 }
 
 #mega-menu-wrap-menu-1 #mega-menu-menu-1 li.mega-menu-megamenu>ul.mega-sub-menu>li.mega-menu-row>ul.mega-sub-menu>li.mega-menu-columns-2-of-12 {
-    width: 150px
+    width: 150px;
+    word-break: break-word;
 }
 
 section.headline-section .container {

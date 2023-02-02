@@ -7,13 +7,8 @@ Class Catalog extends MY_Controller
 		$this->load->model('admin_model');
 		$this->load->model('site_info_model');
         $this->load->model('catalog_model');
-        $this->load->model('news_model');
-        
+        $this->load->model('product_model');
 
-		//Lấy thông tin website
-		$id_site_info = '1';
-		$site_info    = $this->site_info_model->get_info($id_site_info);
-		$this->data['site_info'] = $site_info;
 
 		//Lấy thông tin admin
 		$admin_position = $this->session->userdata('group_id');
@@ -24,8 +19,9 @@ Class Catalog extends MY_Controller
         
         //Kiểm tra catalog có danh mục con hay không - nếu có thì gọi ra, kiểm tra và sắp xếp
         $input_catalog = array();
-        $input_catalog['where'] = array('parent_id' => '0','catalog_type' => '0'); // Định nghĩa là dạng danh mục nội dung
+        $input_catalog['where'] = array('parent_id' => '0'); // Định nghĩa là dạng danh mục nội dung
         $input_catalog['order'] = array('sort_order','asc');
+		$this->db->select('id, name, alias, parent_id, status, sort_order, meta_desc, meta_key, social_image_link, redirect_link');
         $list = $this->catalog_model->get_list($input_catalog);
         foreach ($list as $row)
         {
@@ -44,11 +40,10 @@ Class Catalog extends MY_Controller
         }
         $this->data['list'] = $list; 
 
-        $input_news = array();
-        $input_news['order'] = array('id','desc');
-        $news_list  = $this->news_model->get_list($input_news);
-        $this->data['news_list'] = $news_list;
-        
+		$input_product_list = array();
+		$this->db->select('id, catalog_id');
+		$product_list = $this->product_model->get_list($input_product_list);
+		$this->data['product_list'] = $product_list;
 	}
 
 	/*
@@ -56,8 +51,6 @@ Class Catalog extends MY_Controller
 	*/
 	function index()
 	{
-        
-
 		//Lấy nội dung của biến message
 		$message               = $this->session->flashdata('message');
 		$this->data['message'] = $message;
@@ -95,23 +88,16 @@ Class Catalog extends MY_Controller
 				$name             		= $this->input->post('name');
                 $alias             		= $this->input->post('alias');
                 $parent_id              = $this->input->post('parent_id');
-                $content_status         = $this->input->post('content_status');
-                $url_status             = $this->input->post('url_status');
-				$layout_type            = $this->input->post('layout_type');
-				$landingpage_url		= $this->input->post('landingpage_url');
                 $status					= $this->input->post('status');
                 $sort_order				= $this->input->post('sort_order');
                 $meta_desc				= $this->input->post('meta_desc');
                 $meta_key				= $this->input->post('meta_key');
-				$content                = $this->input->post('content');
-				$menu_status            = $this->input->post('menu_status');
-
-                $catalog_type			= '0'; // Mặc định là dạng danh mục nội dung
+				$redirect_link			= $this->input->post('redirect_link');
 				
 
                 //Lấy tên file ảnh minh họa được upload lên
 				$this->load->library('upload_library');
-                $upload_path = './upload/catalog';
+                $upload_path = './upload/catalog_product';
                 
                 $upload_data_image = $this->upload_library->upload($upload_path, 'image_link');
 
@@ -125,20 +111,12 @@ Class Catalog extends MY_Controller
 						'name'                 	=> $name,
                         'alias'                 => $alias,
                         'parent_id'			    => $parent_id,
-                        'content_status'		=> $content_status,
-                        'url_status'		    => $url_status,
-						'layout_type'		    => $layout_type,
-						'landingpage_url'		=> $landingpage_url,
-                        'image_link'            => $image_link,
                         'social_image_link'     => $image_link,
 						'status'                => $status,
                         'sort_order'			=> $sort_order,
                         'meta_desc'             => $meta_desc,
                         'meta_key'              => $meta_key,
-						'content'               => $content,
-						'catalog_type' 			=> $catalog_type,
-						'menu_status' 			=> $menu_status,
-						'created'				=> now(),
+						'redirect_link'			=> $redirect_link,
                     );
                 
                 if($this->catalog_model->create($data))
@@ -183,23 +161,15 @@ Class Catalog extends MY_Controller
 					$name             		= $this->input->post('name');
 					$alias             		= $this->input->post('alias');
 					$parent_id              = $this->input->post('parent_id');
-					$content_status         = $this->input->post('content_status');
-					$url_status             = $this->input->post('url_status');
-					$layout_type            = $this->input->post('layout_type');
-					$landingpage_url		= $this->input->post('landingpage_url');
 					$status					= $this->input->post('status');
 					$sort_order				= $this->input->post('sort_order');
 					$meta_desc				= $this->input->post('meta_desc');
 					$meta_key				= $this->input->post('meta_key');
-					$content                = $this->input->post('content');
-
-					$menu_status            = $this->input->post('menu_status');
-
-					$catalog_type			= '0'; // Mặc định là dạng danh mục nội dung
+					$redirect_link			= $this->input->post('redirect_link');
 
 					//Lấy tên file ảnh minh họa được upload lên
 					$this->load->library('upload_library');
-					$upload_path = './upload/catalog';
+					$upload_path = './upload/catalog_product';
 					
 					$upload_data_image = $this->upload_library->upload($upload_path, 'image_link');
 
@@ -213,26 +183,20 @@ Class Catalog extends MY_Controller
 					
 					$data = array(
 						'name'                 	=> $name,
-						'alias'                 => $alias,
-						'parent_id'			    => $parent_id,
-						'content_status'		=> $content_status,
-						'url_status'		    => $url_status,
-						'layout_type'		    => $layout_type,
-						'landingpage_url'		=> $landingpage_url,
+                        'alias'                 => $alias,
+                        'parent_id'			    => $parent_id,
+                        'social_image_link'     => $image_link,
 						'status'                => $status,
-						'sort_order'			=> $sort_order,
-						'meta_desc'             => $meta_desc,
-						'meta_key'              => $meta_key,
-						'content'               => $content,
-						'catalog_type'			=> $catalog_type, 
-						'menu_status'			=> $menu_status, 
+                        'sort_order'			=> $sort_order,
+                        'meta_desc'             => $meta_desc,
+                        'meta_key'              => $meta_key,
+						'redirect_link'			=> $redirect_link,
 					);
 					
 					if($image_link != '')
 					{
-						$image_link_of_this_info = './upload/catalog/'.$info->image_link; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
+						$image_link_of_this_info = './upload/catalog_product/'.$info->image_link; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
 						unlink($image_link_of_this_info); // Xóa ảnh cũ
-						$data['image_link'] = $image_link;
 						$data['social_image_link'] = $image_link;
 					}
 					
@@ -241,17 +205,6 @@ Class Catalog extends MY_Controller
 
 					if($this->catalog_model->update($id, $data))
 					{
-						$input_news = array();
-						$input_news['order'] = array('id','desc');
-						$news_list  = $this->news_model->get_list($input_news);
-						foreach($news_list as $news){
-							if($news->catalog_id == $info->id){
-								$data = array(
-									'catalog_status' => $status,
-								);
-								$this->news_model->update($news->id, $data);
-							}
-						}
 						//Tạo ra nội dung thông báo
 						$this->session->set_flashdata('message','Cập nhật dữ liệu thành công');
 						
@@ -287,7 +240,7 @@ Class Catalog extends MY_Controller
 		}
 
 		//Thực hiện xóa
-		$image_link_of_this_info = './upload/catalog/'.$info->image_link; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
+		$image_link_of_this_info = './upload/catalog_product/'.$info->image_link; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
 		unlink($image_link_of_this_info); // Xóa ảnh
 
 		$this->catalog_model->delete($id); // Xóa dữ liệu trong CSDL
