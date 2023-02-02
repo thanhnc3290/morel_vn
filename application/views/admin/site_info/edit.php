@@ -4,25 +4,6 @@
 			<div class="content-header-left col-md-6 col-12 mb-2">
 			<h3 class="content-header-title mb-0">Quản lý Thông tin Website</h3>
 			</div>
-			<div class="content-header-right col-md-6 col-12">
-				<div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-					<a href="" data-toggle="modal" data-target="#edit_robot_txt" style="margin-right: 10px;">
-						<div class="btn-group" role="group">
-							<button class="btn btn-outline-primary" type="button"><i class="ft-plus-square icon-left"></i> Chỉnh sửa Robots.txt</button>
-						</div>
-					</a>
-					<!-- <a href="" data-toggle="modal" data-target="#edit_popup" style="margin-right: 10px;">
-						<div class="btn-group" role="group">
-							<button class="btn btn-outline-primary" type="button"><i class="ft-plus-square icon-left"></i> Chỉnh sửa Popup</button>
-						</div>
-					</a> -->
-					<!-- <a href="" data-toggle="modal" data-target="#edit_message_total_site" style="margin-right: 10px;">
-						<div class="btn-group" role="group">
-							<button class="btn btn-outline-primary" type="button"><i class="ft-plus-square icon-left"></i> Chỉnh sửa Thông báo toàn website</button>
-						</div>
-					</a> -->
-				</div>
-			</div>
 		</div>
       <div class="content-body">
 

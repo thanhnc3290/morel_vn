@@ -71,4 +71,7 @@ $route['translate_uri_dashes'] = true;
 $route['^admin?$'] = 'admin/login';
 $route['^admin/(:any)?$'] = 'admin/$1';
 
+//rewrite front-end
+$route['^product-category/(:any)-c(:num)?$'] = 'catalog/catalog/$2';
+$route['^product/(:any)-p(:num)?$'] = 'product/product/$2';
 

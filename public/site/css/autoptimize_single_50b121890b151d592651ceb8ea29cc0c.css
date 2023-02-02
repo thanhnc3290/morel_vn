@@ -658,7 +658,8 @@ ul.woocommerce-categories li a:hover {
 .home .page-title {
     font-size: 54px;
     font-weight: 900;
-    text-align: center
+    text-align: center;
+    font-family: 'Roboto';
 }
 
 .section-product-main {
@@ -686,7 +687,7 @@ ul.woocommerce-categories li a:hover {
 }
 
 .section-product-main .cols .col-nav {
-    flex: 0 0 180px;
+    flex: 0 0 220px;
     margin-right: 120px
 }
 
@@ -1169,7 +1170,8 @@ ul.woocommerce-categories li a:hover {
 }
 
 .home .section-title {
-    margin-bottom: 0
+    margin-bottom: 0;
+    font-family: 'Roboto';
 }
 
 .section-product-tech {
