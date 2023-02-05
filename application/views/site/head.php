@@ -3,8 +3,27 @@
         $site_title = $info->name;
         $meta_desc  = $info->meta_desc;
         $meta_key   = $info->meta_key;
-        $social_image_link  = '';
-        $current_url = '';
+        if(isset($info->parent_id)){
+            //định danh là catalog
+            $social_image_link  = public_url('site/images/no_image.jpg');
+            if($info->social_image_link !== ''){
+                $social_image_link = base_url('upload/catalog/'.$info->social_image_link);
+            }
+            $current_url = base_url('product-category/'.$info->alias.'-c'.$info->id);
+        }else{
+            if(isset($info->catalog_id)){
+                //định danh là product
+                $social_image_link  = public_url('site/images/no_image.jpg');
+                if($info->social_image_link !== ''){
+                    $social_image_link = base_url('upload/product/'.$info->social_image_link);
+                }
+                $current_url = base_url('product/'.$info->alias.'-p'.$info->id);
+            }else{
+                //định danh là project / 
+                $social_image_link  = '';
+                $current_url = '';
+            }
+        }
     }else{
         $site_title = $site_info->site_title;
         $meta_desc  = $site_info->meta_desc;
@@ -32,7 +51,7 @@
     <meta property="og:url" content="<?php echo $current_url ?>" />
     <meta property="og:site_name" content="<?php echo $site_title ?>" />
     <meta property="article:modified_time" content="2021-11-22T08:21:20+00:00" />
-    <meta property="og:image" content="<?php echo public_url('site/images') ?>/Favicon.png" />
+    <meta property="og:image" content="<?php echo $social_image_link ?>" />
     <meta property="og:image:width" content="1977" />
     <meta property="og:image:height" content="1988" />
     <meta property="og:image:type" content="image/png" />

@@ -103,8 +103,16 @@
 										<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
 					                        <fieldset class="form-group">
 					                        	<label for="basicInput">Các Sản Phẩm hiển thị:</label>
-					                        	<input type="text" class="form-control" id="basicInput" placeholder="Nhập tiêu đề 2" name="relate_product_list" value="<?php echo $info->relate_product_list ?>">
-					                        </fieldset> 
+												<select class="select2 form-control" id="basicSelect" name="relate_product_list[]" multiple>
+                                                    <?php 
+                                                        $relate_product_list_of_this_info = json_decode($info->relate_product_list);
+                                                    ?>
+						                          	<option>Select</option>
+						                            <?php foreach($product_list as $cat): ?>
+						                            <option value="<?php echo $cat->id ?>" <?php if($cat->status > '0'){echo 'disabled';} ?> <?php if(is_array($relate_product_list_of_this_info)): ?><?php foreach($relate_product_list_of_this_info as $tech): ?><?php if($tech == $cat->id) echo 'selected' ?><?php endforeach; ?><?php endif; ?>><?php echo $cat->name ?></option>
+						                        	<?php endforeach; ?>
+						                          </select>
+											</fieldset> 
 					                    </div>
 										
 										<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
@@ -118,10 +126,10 @@
 					                        </fieldset> 
 					                    </div>
 										
-										<div class="row justify-content-md-left">
+										<div class="col-xl-6 col-lg-6 col-md-6 mb-1">
 											<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
 												<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-													<h4><u><b>Ảnh Banner (kích thước chuẩn 1920x700 px):</b></u></h4>
+													<h4><u><b>Ảnh Banner Desktop:</b></u></h4>
 												</div>
 												<div class="col-xl-12 col-lg-12 col-md-12">
 													<fieldset class="form-group">
@@ -153,6 +161,41 @@
 											</div>
 										</div>
 
+										<div class="col-xl-6 col-lg-6 col-md-6 mb-1">
+											<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+												<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+													<h4><u><b>Ảnh Banner Mobile:</b></u></h4>
+												</div>
+												<div class="col-xl-12 col-lg-12 col-md-12">
+													<fieldset class="form-group">
+														<input name="relate_banner_image_mobile" type="file" id="relate_banner_image_mobile">
+													</fieldset>
+													<?php
+														$relate_banner_image_of_this_info_mobile = '';
+														if($info->relate_banner_image_mobile !== ''){
+															$relate_banner_image_of_this_info_mobile = base_url('upload/site_info/'.$info->relate_banner_image_mobile);
+														}
+													?>
+													<!-- Thẻ hiển thị Preview ảnh -->
+													<fieldset class="form-group">
+														<center><img id="image_of_relate_banner_image_mobile" style="max-height:300px;max-width:100%;" src="<?php echo $relate_banner_image_of_this_info_mobile ?>" /></center>
+														<script>
+															document.getElementById("relate_banner_image_mobile").onchange = function () {
+																var reader = new FileReader();
+																reader.onload = function (e) {
+																	// get loaded data and render thumbnail.
+																	document.getElementById("image_of_relate_banner_image_mobile").src = e.target.result;
+																};
+																// read the image file as a data URL.
+																reader.readAsDataURL(this.files[0]);
+															};
+														</script>
+													</fieldset>
+													<!-- END thẻ hiển thị view ảnh -->
+												</div>
+											</div>
+										</div>
+
 										<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
 						                	<h4><u><b>Banner sản phẩm 2:</b></u></h4>
 						                </div>
@@ -164,10 +207,10 @@
 					                        </fieldset> 
 					                    </div>
 
-										<div class="row justify-content-md-left">
+										<div class="col-xl-6 col-lg-6 col-md-6 mb-1">
 											<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
 												<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-													<h4><u><b>Ảnh Banner (kích thước chuẩn 1920x700 px):</b></u></h4>
+													<h4><u><b>Ảnh Banner Desktop:</b></u></h4>
 												</div>
 												<div class="col-xl-12 col-lg-12 col-md-12">
 													<fieldset class="form-group">
@@ -188,6 +231,41 @@
 																reader.onload = function (e) {
 																	// get loaded data and render thumbnail.
 																	document.getElementById("image_of_relate_banner_image_2").src = e.target.result;
+																};
+																// read the image file as a data URL.
+																reader.readAsDataURL(this.files[0]);
+															};
+														</script>
+													</fieldset>
+													<!-- END thẻ hiển thị view ảnh -->
+												</div>
+											</div>
+										</div>
+
+										<div class="col-xl-6 col-lg-6 col-md-6 mb-1">
+											<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+												<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+													<h4><u><b>Ảnh Banner Mobile:</b></u></h4>
+												</div>
+												<div class="col-xl-12 col-lg-12 col-md-12">
+													<fieldset class="form-group">
+														<input name="relate_banner_image_2_mobile" type="file" id="relate_banner_image_2_mobile">
+													</fieldset>
+													<?php
+														$relate_banner_image_of_this_info_2_mobile = '';
+														if($info->relate_banner_image_2_mobile !== ''){
+															$relate_banner_image_of_this_info_2_mobile = base_url('upload/site_info/'.$info->relate_banner_image_2_mobile);
+														}
+													?>
+													<!-- Thẻ hiển thị Preview ảnh -->
+													<fieldset class="form-group">
+														<center><img id="image_of_relate_banner_image_2_mobile" style="max-height:300px;max-width:100%;" src="<?php echo $relate_banner_image_of_this_info_2_mobile ?>" /></center>
+														<script>
+															document.getElementById("relate_banner_image_2_mobile").onchange = function () {
+																var reader = new FileReader();
+																reader.onload = function (e) {
+																	// get loaded data and render thumbnail.
+																	document.getElementById("image_of_relate_banner_image_2_mobile").src = e.target.result;
 																};
 																// read the image file as a data URL.
 																reader.readAsDataURL(this.files[0]);
@@ -270,10 +348,10 @@
 					                        </fieldset> 
 					                    </div>
 
-										<div class="row justify-content-md-left">
+										<div class="col-xl-6 col-lg-6 col-md-6 mb-1">
 											<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
 												<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
-													<h4><u><b>Ảnh Banner (kích thước chuẩn 1920x700 px):</b></u></h4>
+													<h4><u><b>Ảnh Banner Desktop:</b></u></h4>
 												</div>
 												<div class="col-xl-12 col-lg-12 col-md-12">
 													<fieldset class="form-group">
@@ -294,6 +372,41 @@
 																reader.onload = function (e) {
 																	// get loaded data and render thumbnail.
 																	document.getElementById("image_of_relate_banner_image_3").src = e.target.result;
+																};
+																// read the image file as a data URL.
+																reader.readAsDataURL(this.files[0]);
+															};
+														</script>
+													</fieldset>
+													<!-- END thẻ hiển thị view ảnh -->
+												</div>
+											</div>
+										</div>
+
+										<div class="col-xl-6 col-lg-6 col-md-6 mb-1">
+											<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+												<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+													<h4><u><b>Ảnh Banner Mobile:</b></u></h4>
+												</div>
+												<div class="col-xl-12 col-lg-12 col-md-12">
+													<fieldset class="form-group">
+														<input name="relate_banner_image_3_mobile" type="file" id="relate_banner_image_3_mobile">
+													</fieldset>
+													<?php
+														$relate_banner_image_of_this_info_3_mobile = '';
+														if($info->relate_banner_image_3_mobile !== ''){
+															$relate_banner_image_of_this_info_3_mobile = base_url('upload/site_info/'.$info->relate_banner_image_3_mobile);
+														}
+													?>
+													<!-- Thẻ hiển thị Preview ảnh -->
+													<fieldset class="form-group">
+														<center><img id="image_of_relate_banner_image_3_mobile" style="max-height:300px;max-width:100%;" src="<?php echo $relate_banner_image_of_this_info_3_mobile ?>" /></center>
+														<script>
+															document.getElementById("relate_banner_image_3_mobile").onchange = function () {
+																var reader = new FileReader();
+																reader.onload = function (e) {
+																	// get loaded data and render thumbnail.
+																	document.getElementById("image_of_relate_banner_image_3_mobile").src = e.target.result;
 																};
 																// read the image file as a data URL.
 																reader.readAsDataURL(this.files[0]);

@@ -48,8 +48,20 @@ Class Product extends MY_Controller
 		$component_list = $this->product_model->get_list($input_component_list);
 		$this->data['component_list'] = $component_list;
 
-        $this->data['temp'] = 'site/product/product';
-		$this->load->view('site/product/layout', $this->data);
+		if($info->layout_type == '0'){
+			$this->data['temp'] = 'site/product/product';
+			$this->load->view('site/product/layout', $this->data);
+		}	
+
+		if($info->layout_type == '1'){
+			$this->data['temp'] = 'site/product/product';
+			$this->load->view('site/product/layout', $this->data);
+		}	
+
+		if($info->layout_type == '2'){
+			$this->data['temp'] = 'site/product/product_2';
+			$this->load->view('site/product/layout_2', $this->data);
+		}	
     }
 	
 }

@@ -83,13 +83,13 @@
                                             </fieldset> 
                                         </div>
 
-                                        <div class="col-xl-4 col-lg-4 col-md-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-3">
                                             <fieldset class="form-group">
                                                 <label for="basicSelect">Danh mục Sản Phẩm:</label>
                                                 <select class="form-control" id="basicSelect" name="catalog_id" required>
                                                 <option value=""> --- Lựa chọn danh mục --- </option>
                                                 <?php foreach($catalog_list as $row): ?>
-                                                    <option value="<?php echo $row->id ?>" <?php if(count($row->subs) > '0') {echo 'disabled';} ?> <?php if($row->status !== '0') { echo 'disabled';}?>><strong><?php echo $row->name ?></strong></option>
+                                                    <option value="<?php echo $row->id ?>" <?php if($row->status !== '0') { echo 'disabled';}?>><strong><?php echo $row->name ?></strong></option>
                                                     <?php foreach($row->subs as $subs): ?>
                                                     <option value="<?php echo $subs->id ?>" <?php if($subs->status !== '0') { echo 'disabled';}else{if($subs->redirect_link !== ''){echo 'disabled';}}?>>-- <i><?php echo $subs->name ?></i></option>
                                                     <?php foreach($subs->subss as $subss): ?>
@@ -101,7 +101,7 @@
                                             </fieldset>
                                         </div>
 
-                                        <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
+                                        <div class="col-xl-3 col-lg-3 col-md-3">
                                             <fieldset class="form-group">
                                                 <label for="basicSelect">Trạng thái:</label>
                                                 <select class="form-control" id="basicSelect" name="status">
@@ -111,11 +111,35 @@
                                             </fieldset>
                                         </div>
 
-                                        <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
+                                        <div class="col-xl-3 col-lg-3 col-md-3">
                                             <fieldset class="form-group">
                                                 <label for="basicInput">Thứ tự ưu tiên:</label>
                                                 <input type="number" class="form-control" id="basicInput" name="sort_order">
                                             </fieldset>
+                                        </div>
+
+                                        <div class="col-xl-3 col-lg-3 col-md-3">
+                                            <fieldset class="form-group">
+                                                <label for="basicSelect">Dạng Layout:</label>
+                                                <select class="form-control" id="basicSelect" name="layout_type">
+                                                <option value="0">Layout 1</option>
+                                                <option value="1">Layout 2</option>
+                                                <option value="2">Layout 3</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="col-xl-6 col-lg-6 col-md-6 mb-1">
+                                            <fieldset class="form-group">
+                                                <label for="basicInput">Tên Option 1:</label>
+                                                <input type="text" class="form-control" id="basicInput" name="option_name_1" placeholder="Nhập tên Option 1" value="">
+                                            </fieldset> 
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 mb-1">
+                                            <fieldset class="form-group">
+                                                <label for="basicInput">Giá Option 1 (USD):</label>
+                                                <input type="number" class="form-control" id="basicInput" name="option_price_1" placeholder="Nhập giá Option 1" value="">
+                                            </fieldset> 
                                         </div>
 
                                         <div class="col-xl-6 col-lg-6 col-md-6 mb-1">

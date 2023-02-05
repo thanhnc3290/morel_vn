@@ -11,7 +11,7 @@
                 <div>
         </section>
         <section class="atmosphere-section desktop_hide" id="atmosphere-section"
-            style="background: url(<?php echo base_url('upload/site_info/'.$site_info->relate_banner_image_3) ?>) no-repeat center;background-size:100%;">
+            style="background: url(<?php echo base_url('upload/site_info/'.$site_info->relate_banner_image_3_mobile) ?>) no-repeat center;background-size:100%;">
             <div class="container">
                 <div class="atmosphere_details">
                     <div class="atmosphere_headline">
