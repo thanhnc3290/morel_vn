@@ -6,6 +6,7 @@ Class Home_page extends MY_Controller
 		parent::__construct();
 		$this->load->model('admin_model');
 		$this->load->model('site_info_model');
+		$this->load->model('product_model');
 
 		//Lấy thông tin website
 		$id_site_info = '1';
@@ -20,8 +21,10 @@ Class Home_page extends MY_Controller
 		$this->data['admin_login_id'] = $admin_login_id;
 
 		//Check quyền ở đây
-
-
+		$input_product_list = array();
+		$this->db->select('id, name, status');
+		$product_list = $this->product_model->get_list($input_product_list);
+		$this->data['product_list'] = $product_list;
 	}
 	
 	/*
@@ -63,6 +66,8 @@ Class Home_page extends MY_Controller
                 $relate_title_1         	= $this->input->post('relate_title_1'); 
                 $relate_title_2         	= $this->input->post('relate_title_2');
                 $relate_product_list    	= $this->input->post('relate_product_list');
+				$relate_product_list   		= json_encode($relate_product_list);
+
                 $relate_banner_link     	= $this->input->post('relate_banner_link');
 				$relate_banner_link_2     	= $this->input->post('relate_banner_link_2');
 				$relate_banner_link_3     	= $this->input->post('relate_banner_link_3');
@@ -90,6 +95,14 @@ Class Home_page extends MY_Controller
 				{
 					$relate_banner_image = $upload_data_relate_banner_image['file_name'];
 				}
+
+				$upload_data_relate_banner_image_mobile = $this->upload_library->upload($upload_path, 'relate_banner_image_mobile');
+
+				$relate_banner_image_mobile ='';
+				if(isset($upload_data_relate_banner_image_mobile['file_name']))
+				{
+					$relate_banner_image_mobile = $upload_data_relate_banner_image_mobile['file_name'];
+				}
 				
 
 				$upload_data_relate_banner_image_2 = $this->upload_library->upload($upload_path, 'relate_banner_image_2');
@@ -100,12 +113,28 @@ Class Home_page extends MY_Controller
 					$relate_banner_image_2 = $upload_data_relate_banner_image_2['file_name'];
 				}
 
+				$upload_data_relate_banner_image_2_mobile = $this->upload_library->upload($upload_path, 'relate_banner_image_2_mobile');
+
+				$relate_banner_image_2_mobile ='';
+				if(isset($upload_data_relate_banner_image_2_mobile['file_name']))
+				{
+					$relate_banner_image_2_mobile = $upload_data_relate_banner_image_2_mobile['file_name'];
+				}
+
 				$upload_data_relate_banner_image_3 = $this->upload_library->upload($upload_path, 'relate_banner_image_3');
 
 				$relate_banner_image_3 ='';
 				if(isset($upload_data_relate_banner_image_3['file_name']))
 				{
 					$relate_banner_image_3 = $upload_data_relate_banner_image_3['file_name'];
+				}
+
+				$upload_data_relate_banner_image_3_mobile = $this->upload_library->upload($upload_path, 'relate_banner_image_3_mobile');
+
+				$relate_banner_image_3_mobile ='';
+				if(isset($upload_data_relate_banner_image_3_mobile['file_name']))
+				{
+					$relate_banner_image_3_mobile = $upload_data_relate_banner_image_3_mobile['file_name'];
 				}
 
 				$upload_data_relate_banner_image_4 = $this->upload_library->upload($upload_path, 'relate_banner_image_4');
@@ -115,6 +144,14 @@ Class Home_page extends MY_Controller
 				{
 					$relate_banner_image_4 = $upload_data_relate_banner_image_4['file_name'];
 				}
+
+				// $upload_data_relate_banner_image_4_mobile = $this->upload_library->upload($upload_path, 'relate_banner_image_4_mobile');
+
+				// $relate_banner_image_4_mobile ='';
+				// if(isset($upload_data_relate_banner_image_4_mobile['file_name']))
+				// {
+				// 	$relate_banner_image_4_mobile = $upload_data_relate_banner_image_4_mobile['file_name'];
+				// }
 				
 				$data = array(
 					'video_title'           	=> $video_title,
@@ -143,11 +180,25 @@ Class Home_page extends MY_Controller
 					$data['relate_banner_image'] = $relate_banner_image;
 				}
 
+				if($relate_banner_image_mobile != '')
+				{
+					$relate_banner_image_of_this_info_mobile = './upload/site_info/'.$info->relate_banner_image_mobile; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
+					unlink($relate_banner_image_of_this_info_mobile); // Xóa ảnh cũ
+					$data['relate_banner_image_mobile'] = $relate_banner_image_mobile;
+				}
+
 				if($relate_banner_image_2 != '')
 				{
 					$relate_banner_image_of_this_info_2 = './upload/site_info/'.$info->relate_banner_image_2; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
 					unlink($relate_banner_image_of_this_info_2); // Xóa ảnh cũ
 					$data['relate_banner_image_2'] = $relate_banner_image_2;
+				}
+
+				if($relate_banner_image_2_mobile != '')
+				{
+					$relate_banner_image_of_this_info_2_mobile = './upload/site_info/'.$info->relate_banner_image_2_mobile; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
+					unlink($relate_banner_image_of_this_info_2_mobile); // Xóa ảnh cũ
+					$data['relate_banner_image_2_mobile'] = $relate_banner_image_2_mobile;
 				}
 
 				if($relate_banner_image_3 != '')
@@ -157,12 +208,19 @@ Class Home_page extends MY_Controller
 					$data['relate_banner_image_3'] = $relate_banner_image_3;
 				}
 
-				if($relate_banner_image_4 != '')
+				if($relate_banner_image_3_mobile != '')
 				{
-					$relate_banner_image_of_this_info_4 = './upload/site_info/'.$info->relate_banner_image_4; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
-					unlink($relate_banner_image_of_this_info_4); // Xóa ảnh cũ
-					$data['relate_banner_image_4'] = $relate_banner_image_4;
+					$relate_banner_image_of_this_info_3_mobile = './upload/site_info/'.$info->relate_banner_image_3_mobile; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
+					unlink($relate_banner_image_of_this_info_3_mobile); // Xóa ảnh cũ
+					$data['relate_banner_image_3_mobile'] = $relate_banner_image_3_mobile;
 				}
+
+				// if($relate_banner_image_4_mobile != '')
+				// {
+				// 	$relate_banner_image_of_this_info_4_mobile = './upload/site_info/'.$info->relate_banner_image_4_mobile; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
+				// 	unlink($relate_banner_image_of_this_info_4_mobile); // Xóa ảnh cũ
+				// 	$data['relate_banner_image_4_mobile'] = $relate_banner_image_4_mobile;
+				// }
 				                
 				if($this->site_info_model->update($id, $data))
 				{

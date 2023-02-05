@@ -75,16 +75,29 @@ Class Product extends MY_Controller
 				$name             		= $this->input->post('name');
                 $alias             		= $this->input->post('alias');
                 $catalog_id             = $this->input->post('catalog_id');
+				$layout_type            = $this->input->post('layout_type');
                 $status                 = $this->input->post('status');
                 $sort_order             = $this->input->post('sort_order');
                 $meta_desc              = $this->input->post('meta_desc');
                 $meta_key               = $this->input->post('meta_key');
                 $content                = $this->input->post('content');
 
-                $option_name_1          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_1'));
-                $option_name_2          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_2'));
-                $option_name_3          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_3'));
-                $option_name_4          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_4'));
+				$option_name_1			= $this->input->post('option_name_1');
+				if($option_name_1 !== ''){
+					$option_name_1          = str_replace(array('"',"'"),'&quot;',$option_name_1);
+				}
+				$option_name_2			= $this->input->post('option_name_2');
+				if($option_name_2 !== ''){
+					$option_name_2          = str_replace(array('"',"'"),'&quot;',$option_name_2);
+				}
+				$option_name_3			= $this->input->post('option_name_3');
+				if($option_name_3 !== ''){
+					$option_name_3          = str_replace(array('"',"'"),'&quot;',$option_name_3);
+				}
+				$option_name_4			= $this->input->post('option_name_4');
+				if($option_name_4 !== ''){
+					$option_name_4          = str_replace(array('"',"'"),'&quot;',$option_name_4);
+				}
 
                 $option_price_1         = $this->input->post('option_price_1');
                 $option_price_2         = $this->input->post('option_price_2');
@@ -132,6 +145,7 @@ Class Product extends MY_Controller
 						'name'                 	=> $name,
                         'alias'                 => $alias,
                         'catalog_id'			=> $catalog_id,
+						'layout_type'			=> $layout_type,
                         'status'                => $status,
                         'sort_order'            => $sort_order,
                         'meta_desc'             => $meta_desc,
@@ -203,16 +217,29 @@ Class Product extends MY_Controller
 				$name             		= $this->input->post('name');
                 $alias             		= $this->input->post('alias');
                 $catalog_id             = $this->input->post('catalog_id');
+				$layout_type			= $this->input->post('layout_type');
                 $status                 = $this->input->post('status');
                 $sort_order             = $this->input->post('sort_order');
                 $meta_desc              = $this->input->post('meta_desc');
                 $meta_key               = $this->input->post('meta_key');
                 $content                = $this->input->post('content');
 
-                $option_name_1          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_1'));
-                $option_name_2          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_2'));
-                $option_name_3          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_3'));
-                $option_name_4          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_4'));
+				$option_name_1			= $this->input->post('option_name_1');
+				if($option_name_1 !== ''){
+					$option_name_1          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_1'));
+				}
+				$option_name_2			= $this->input->post('option_name_2');
+				if($option_name_2 !== ''){
+					$option_name_2          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_2'));
+				}
+				$option_name_3			= $this->input->post('option_name_3');
+				if($option_name_3 !== ''){
+					$option_name_3          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_3'));
+				}
+				$option_name_4			= $this->input->post('option_name_4');
+				if($option_name_4 !== ''){
+					$option_name_4          = str_replace(array('"',"'"),'&quot;',$this->input->post('option_name_4'));
+				}
 
                 $option_price_1         = $this->input->post('option_price_1');
                 $option_price_2         = $this->input->post('option_price_2');
@@ -259,6 +286,7 @@ Class Product extends MY_Controller
 						'name'                 	=> $name,
                         'alias'                 => $alias,
                         'catalog_id'			=> $catalog_id,
+						'layout_type'			=> $layout_type,
                         'status'                => $status,
                         'sort_order'            => $sort_order,
                         'meta_desc'             => $meta_desc,

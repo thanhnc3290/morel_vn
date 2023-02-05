@@ -84,7 +84,7 @@
                                             </fieldset> 
                                         </div>
 
-                                        <div class="col-xl-4 col-lg-4 col-md-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 mb-1">
                                             <fieldset class="form-group">
                                                 <label for="basicSelect">Danh mục Sản Phẩm:</label>
                                                 <select class="form-control" id="basicSelect" name="catalog_id" required>
@@ -102,7 +102,7 @@
                                             </fieldset>
                                         </div>
 
-                                        <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 mb-1">
                                             <fieldset class="form-group">
                                                 <label for="basicSelect">Trạng thái:</label>
                                                 <select class="form-control" id="basicSelect" name="status">
@@ -112,10 +112,21 @@
                                             </fieldset>
                                         </div>
 
-                                        <div class="col-xl-4 col-lg-4 col-md-4 mb-1">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 mb-1">
                                             <fieldset class="form-group">
                                                 <label for="basicInput">Thứ tự ưu tiên:</label>
                                                 <input type="number" class="form-control" id="basicInput" name="sort_order" value="<?php echo $info->sort_order; ?>">
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="col-xl-3 col-lg-3 col-md-3">
+                                            <fieldset class="form-group">
+                                                <label for="basicSelect">Dạng Layout:</label>
+                                                <select class="form-control" id="basicSelect" name="layout_type">
+                                                <option value="0" <?php if($info->layout_type == '0'){echo 'selected';} ?>>Layout 1</option>
+                                                <option value="1" <?php if($info->layout_type == '1'){echo 'selected';} ?>>Layout 2</option>
+                                                <option value="2" <?php if($info->layout_type == '2'){echo 'selected';} ?>>Layout 3</option>
+                                                </select>
                                             </fieldset>
                                         </div>
 
