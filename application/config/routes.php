@@ -79,4 +79,5 @@ $route['^project/(:any)-p(:num)?$'] = 'project/view/$2';
 $route['^blog(.html)?$'] = 'blog/index/';
 $route['^blog/(:any)-n(:num)?$'] = 'blog/view/$2';
 $route['^about-us(.html)?$'] = 'about_us/index/';
+$route['^technology(.html)?$'] = 'technology/index/';
 
