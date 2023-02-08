@@ -5,7 +5,7 @@
             </div>
             <div class="video_details">
                 <div class="video_headline"><span></span></div>
-                <div class="video_button"><a onclick="fullscreen();"><?php echo $site_info->video_title; ?></a></div>
+                <div class="video_button"><a onclick="fullscreen();" style="font-family: Roboto;"><?php echo $site_info->video_title; ?></a></div>
             </div>
             <div class="mbr-arrow hidden-sm-down" aria-hidden="true"> <a href="#products-section"><span></span></a>
             </div>

@@ -407,6 +407,17 @@ Class Product extends MY_Controller
 		$social_image_link_of_this_info = './upload/product/'.$info->social_image_link; // Tạo vị trí ảnh đại diện cũ -- Tương tự với image_list thì foreach nó ra -- để xóa
 		unlink($social_image_link_of_this_info); // Xóa ảnh
 
+		if(is_array(json_decode($info->image_list))){
+            $image_list_to_delete =json_decode($info->image_list);
+            foreach($image_list_to_delete as $img){
+                $image_link = './upload/product/'.$img;
+                if(file_exists($image_link))
+                {
+                        unlink($image_link);
+                }
+            }
+        }
+
 		$this->product_model->delete($id); // Xóa dữ liệu trong CSDL
 		$this->session->set_flashdata('message','Xóa dữ liệu thành công');
 		redirect(admin_url('product'));

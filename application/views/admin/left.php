@@ -15,6 +15,9 @@
         <li><a class="menu-item" href="<?php echo admin_url('catalog') ?>">Danh mục Sản Phẩm</a></li>
         <li><a class="menu-item" href="<?php echo admin_url('product') ?>">Sản Phẩm</a></li>
         <li><a class="menu-item" href="<?php echo admin_url('product_technology') ?>">Công Nghệ Sản Phẩm</a></li>
+
+        <li><a class="menu-item" href="<?php echo admin_url('project') ?>">Dự Án</a></li>
+        <li><a class="menu-item" href="<?php echo admin_url('blog') ?>">Blog</a></li>
         
         <!-- <li><a class="menu-item" href="<?php echo admin_url('slider') ?>">Slider</a></li>
         

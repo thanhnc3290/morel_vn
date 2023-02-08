@@ -74,4 +74,9 @@ $route['^admin/(:any)?$'] = 'admin/$1';
 //rewrite front-end
 $route['^product-category/(:any)-c(:num)?$'] = 'catalog/catalog/$2';
 $route['^product/(:any)-p(:num)?$'] = 'product/product/$2';
+$route['^project(.html)?$'] = 'project/index/';
+$route['^project/(:any)-p(:num)?$'] = 'project/view/$2';
+$route['^blog(.html)?$'] = 'blog/index/';
+$route['^blog/(:any)-n(:num)?$'] = 'blog/view/$2';
+$route['^about-us(.html)?$'] = 'about_us/index/';
 

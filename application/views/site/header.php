@@ -114,13 +114,13 @@
                         id='mega-menu-item-33'><a class="mega-menu-link" href="#"
                             tabindex="0">Công Nghệ</a></li>
                     <li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-32'
-                        id='mega-menu-item-32'><a class="mega-menu-link" href="#"
+                        id='mega-menu-item-32'><a class="mega-menu-link" href="<?php echo base_url('project') ?>"
                             tabindex="0">Dự Án</a></li>
                     <li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-11'
-                        id='mega-menu-item-11'><a class="mega-menu-link" href="#"
+                        id='mega-menu-item-11'><a class="mega-menu-link" href="<?php echo base_url('blog') ?>"
                             tabindex="0">Blog</a></li>
                     <li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-31'
-                        id='mega-menu-item-31'><a class="mega-menu-link" href="#"
+                        id='mega-menu-item-31'><a class="mega-menu-link" href="<?php echo base_url('about-us') ?>"
                             tabindex="0">Về Chúng Tôi</a></li>
                     <li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-30'
                         id='mega-menu-item-30'><a class="mega-menu-link" href="#"
