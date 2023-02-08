@@ -14,6 +14,8 @@ Class MY_Controller extends CI_Controller
 		$this->load->model('catalog_model');
 		$this->load->model('product_model');
 		$this->load->model('product_technology_model');
+		$this->load->model('project_model');
+
 
 
 		//Kiểm tra catalog có danh mục con hay không - nếu có thì gọi ra, kiểm tra và sắp xếp

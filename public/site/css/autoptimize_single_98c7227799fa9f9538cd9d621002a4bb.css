@@ -6381,7 +6381,7 @@ p.no-posts {
 }
 
 .blog_detail_page .container .entry-content p {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Roboto';
     font-size: 16px;
     font-weight: 300;
     line-height: 35px;

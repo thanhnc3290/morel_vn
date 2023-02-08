@@ -8,7 +8,7 @@ CKEDITOR.editorConfig = function(config) {
     // config.language = 'fr';
     // config.uiColor = '#AADC6E';
 
-    var base_url = 'http://localhost:8080/morel_vn/public/js'
+    var base_url = 'http://localhost/morel_vn/public/js'
     config.filebrowserBrowseUrl = base_url + '/ckfinder/ckfin2der.html';
     config.filebrowserFlashBrowseUrl = base_url + '/ckfinder/ckfinder.html?type=Flash';
     config.filebrowserFlashUploadUrl = base_url + '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
