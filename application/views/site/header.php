@@ -111,7 +111,7 @@
                         </ul>
                     </li>
                     <li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-33'
-                        id='mega-menu-item-33'><a class="mega-menu-link" href="#"
+                        id='mega-menu-item-33'><a class="mega-menu-link" href="<?php echo base_url('technology') ?>"
                             tabindex="0">Công Nghệ</a></li>
                     <li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-32'
                         id='mega-menu-item-32'><a class="mega-menu-link" href="<?php echo base_url('project') ?>"
