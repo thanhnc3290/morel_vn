@@ -129,7 +129,7 @@
                         id='mega-menu-item-358'><a class="mega-menu-link"
                             href="#" tabindex="0">Đại Lý</a></li>
                     <li class='mega-always-selected mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-210'
-                        id='mega-menu-item-210'><a class="mega-menu-link" href="#"
+                        id='mega-menu-item-210'><a class="mega-menu-link" href="<?php echo base_url('shop') ?>"
                             tabindex="0">Cửa Hàng</a></li>
                 </ul>
             </div>

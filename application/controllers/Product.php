@@ -11,6 +11,11 @@ Class Product extends MY_Controller
         $this->load->model('product_model');
 	}
 
+	function index(){
+		$this->data['temp'] = 'site/product/index';
+		$this->load->view('site/product/layout_index', $this->data);
+	}
+
     function product(){
 		//Lấy ID của sản phẩm muốn xem
 		$id = $this->uri->rsegment(3);
