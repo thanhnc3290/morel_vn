@@ -36,28 +36,95 @@
             </ul>
         </header>
         <?php foreach($catalog_list as $row): ?>
+            <?php 
+                $product_list = array();
+
+                $input_product_of_row = array();
+                $input_product_of_row['where'] = array('status' => '0','catalog_id' => $row->id);
+                $input_product_of_row['order'] = array('id','desc');
+                $this->db->select('id, name, alias, image_link, meta_desc, option_price_1');
+                $product_list_of_row  = $this->product_model->get_list($input_product_of_row);
+                foreach($product_list_of_row as $product_of_row){
+                    $product_list[] = $product_of_row;
+                }
+
+                foreach($row->subs as $subs){
+                    $input_product_of_subs = array();
+                    $input_product_of_subs['where'] = array('status' => '0','catalog_id' => $subs->id);
+                    $input_product_of_subs['order'] = array('id','desc');
+                    $this->db->select('id, name, alias, image_link, meta_desc, option_price_1');
+                    $product_list_of_subs  = $this->product_model->get_list($input_product_of_subs);
+                    foreach($product_list_of_subs as $product_of_subs){
+                        $product_list[] = $product_of_subs;
+                    }
+
+                    foreach($subs->subss as $subss){
+                        $input_product_of_subss = array();
+                        $input_product_of_subss['where'] = array('status' => '0','catalog_id' => $subss->id);
+                        $input_product_of_subss['order'] = array('id','desc');
+                        $this->db->select('id, name, alias, image_link, meta_desc, option_price_1');
+                        $product_list_of_subss  = $this->product_model->get_list($input_product_of_subss);
+                        foreach($product_list_of_subss as $product_of_subss){
+                            $product_list[] = $product_of_subss;
+                        }
+                    }
+                }
+
+                array_unique($product_list);
+            ?>
+            
         <ul class="products columns-4 shop-page custom_shop">
             <h2 id="<?php echo $row->alias ?>"> <?php echo $row->name ?></h2>
-            <li class="entry product type-product post-5947 status-publish first instock product_cat-lifestyle has-post-thumbnail shipping-taxable purchasable product-type-variable"
-                id="pdtlifestyle5947" onmouseover="check(this.id)" onmouseout="checkout(this.id)"> <a
-                    href="https://www.morelhifi.com/product/nomadic-audio-speakase-ii/"
-                    title="Nomadic Audio Speakase II" class="img-anchor">
-                    <div class="product-thumbnail"> <img width="170" height="170"
-                            src="https://www.morelhifi.com/wp-content/webp-express/webp-images/uploads/2020/04/nomadic-1-white-background-170x170.jpg.webp"
+            <?php foreach($product_list as $product): ?>
+                <?php 
+                    $product_id     = $product->id;
+                    $product_alias  = $product->alias;
+                    $product_name   = $product->name;
+                    $product_url    = base_url('product/'.$product->alias.'-p'.$product->id);
+                    $product_desc   = mb_strimwidth($product->meta_desc,'0','70','...');
+                    $product_image_link = public_url('site/images/no_image.jpg');
+                    if($product->image_link !== ''){
+                        $product_image_link = base_url('upload/product/'.$product->image_link);
+                    }
+                    $product_price_vnd = $product->option_price_1 * $site_info->currency_vnd;
+                ?>
+            <li 
+                class="entry product type-product post-5947 status-publish first instock product_cat-lifestyle has-post-thumbnail shipping-taxable purchasable product-type-variable"
+                id="<?php echo $product_alias.'-'.$product_id ?>" onmouseover="check(this.id)" onmouseout="checkout(this.id)"> 
+                <a
+                    href="<?php echo $product_url; ?>"
+                    title="<?php echo $product_name ?>" class="img-anchor">
+                    <div class="product-thumbnail"> 
+                        <img width="170" height="170"
+                            src="<?php echo $product_image_link ?>"
                             class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                            alt="Nomadic Audio Speakase all colors" decoding="async" loading="lazy"
-                            srcset="https://www.morelhifi.com/wp-content/webp-express/webp-images/uploads/2020/04/nomadic-1-white-background-170x170.jpg.webp 170w,  https://www.morelhifi.com/wp-content/webp-express/webp-images/uploads/2020/04/nomadic-1-white-background-100x100.jpg.webp 100w,  https://www.morelhifi.com/wp-content/webp-express/webp-images/uploads/2020/04/nomadic-1-white-background-400x400.jpg.webp 400w,  https://www.morelhifi.com/wp-content/webp-express/webp-images/uploads/2020/04/nomadic-1-white-background-300x300.jpg.webp 300w,  https://www.morelhifi.com/wp-content/webp-express/webp-images/uploads/2020/04/nomadic-1-white-background-150x150.jpg.webp 150w,  https://www.morelhifi.com/wp-content/webp-express/webp-images/uploads/2020/04/nomadic-1-white-background.jpg.webp 750w"
+                            alt="<?php echo $product_name ?>" decoding="async" loading="lazy"
+                            srcset="
+                                <?php echo $product_image_link ?> 170w,  
+                                <?php echo $product_image_link ?> 100w,  
+                                <?php echo $product_image_link ?> 400w,  
+                                <?php echo $product_image_link ?> 300w,  
+                                <?php echo $product_image_link ?> 150w,  
+                                <?php echo $product_image_link ?> 750w"
                             sizes="(max-width: 34.9rem) calc(100vw - 2rem), (max-width: 53rem) calc(8 * (100vw / 12)), (min-width: 53rem) calc(6 * (100vw / 12)), 100vw" />
                     </div> <span class="middle">
-                        <h3> Nomadic Audio Speakase II</h3> <span class="price"> <span
-                                class="woocommerce-Price-amount amount"><bdi><span
-                                        class="woocommerce-Price-currencySymbol">&#36;</span>1,199</bdi></span>
+                        <h3><?php echo $product_name ?></h3> 
+                        <span class="price"> 
+                            <span class="woocommerce-Price-amount amount">
+                                <bdi>
+                                    <?php if($product_price_vnd > '0'): ?>
+                                    <?php echo number_format($product_price_vnd); ?><span class="woocommerce-Price-currencySymbol"> VND</span>
+                                    <?php endif; ?>
+                                </bdi>
+                            </span>
                         </span>
-                    </span> <span class="short_desc"> We decided to transform your travel experience into something
-                        fun! With innovative speaker engineering and uniquely utilizing the carry </span>
-                </a> <a href="https://www.morelhifi.com/product/nomadic-audio-speakase-ii/"
-                    class="button product_type_simple" rel="nofollow" style="margin-bottom:20px;">Buy</a></li>
-            
+                    </span> 
+                    <span class="short_desc"><?php echo $product_desc ?></span>
+                </a> 
+                
+                <a href="<?php echo $product_url ?>" class="button product_type_simple" rel="nofollow" style="margin: 0.5rem 2.5rem;display:block">Mua</a>
+            </li>
+            <?php endforeach; ?>
         </ul>
         <?php endforeach; ?>
         </main>
