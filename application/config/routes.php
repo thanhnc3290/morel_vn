@@ -82,3 +82,6 @@ $route['^about-us(.html)?$'] = 'about_us/index/';
 $route['^technology(.html)?$'] = 'technology/index/';
 $route['^shop(.html)?$'] = 'product/index/';
 
+
+
+

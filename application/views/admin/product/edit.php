@@ -124,7 +124,7 @@
                                                 <label for="basicSelect">Dạng Layout:</label>
                                                 <select class="form-control" id="basicSelect" name="layout_type">
                                                 <option value="0" <?php if($info->layout_type == '0'){echo 'selected';} ?>>Layout 1</option>
-                                                <option value="1" <?php if($info->layout_type == '1'){echo 'selected';} ?>>Layout 2</option>
+                                                <!-- <option value="1" <?php if($info->layout_type == '1'){echo 'selected';} ?>>Layout 2</option> -->
                                                 <option value="2" <?php if($info->layout_type == '2'){echo 'selected';} ?>>Layout 3</option>
                                                 </select>
                                             </fieldset>
