@@ -69,8 +69,6 @@
                         }
                     }
                 }
-
-                array_unique($product_list);
             ?>
             
         <ul class="products columns-4 shop-page custom_shop">

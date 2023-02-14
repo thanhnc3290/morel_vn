@@ -37,7 +37,7 @@
                                     <?php if($count_relate <= '3'): ?>
                                         <?php 
                                             $name_of_row        = $row->name;
-                                            $desc_of_row        = mb_strimwidth($row->desc,'0','100','...');
+                                            $desc_of_row        = mb_strimwidth($row->meta_desc,'0','100','...');
                                             $image_link_of_row  = public_url('site/images/no_image.jpg');
                                             if($row->image_link !== ''){
                                                 $image_link_of_row = base_url('upload/news/'.$row->image_link);

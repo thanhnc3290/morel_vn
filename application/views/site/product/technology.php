@@ -9,6 +9,7 @@
         ?>
 
         <div class="tech tech-count-6">
+            <?php if(count($technology_list_of_this_info) > '0'): ?>
             <div class="tech-col">
                 <div class="tech-item term-1">
                     <?php if(isset($technology_list_of_this_info['0'])): ?>
@@ -162,6 +163,22 @@
                     </div>
                 </div>
             </div>
+            <?php else: ?>
+                <?php if($info->technology_html !== ''): ?>
+                    <?php echo $info->technology_html; ?>
+                    <style>
+                        .entry-footer{color:white;}
+                        .entry-title{margin:0.5rem!important;}
+                        #tech > div > div > div:nth-child(4){display: none;}
+                        #tech > div > div > div:nth-child(5){display: none;}
+                        #tech > div > div > div:nth-child(6){display: none;}
+                        #tech > div > div > div:nth-child(7){display: none;}
+                        #tech > div > div > div:nth-child(8){display: none;}
+                        #tech > div > div > div:nth-child(9){display: none;}
+                        #tech > div > div > div:nth-child(10){display: none;}
+                    </style>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
     </div>
 </section>
